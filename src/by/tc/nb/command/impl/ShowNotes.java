@@ -27,25 +27,19 @@ public class ShowNotes implements Command {
 
             throw new CommandException("Wrong request");
         }
-
+        
         List<Note> list = NoteBookProvider.getInstance().getNoteBook().getNotes();
-
-
-        try {
-            FileWriter fw = new FileWriter(req.getPath(), true);
-            for (Note someNote : list) {
+        for (Note someNote : list) {
                 String note = someNote.getSomeNote();
                 String date = someNote.getNoteDate().toString();
                 fw.write("[ " + date + " ]" + note + "\r\n");
             }
-            fw.close();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
 
         Response response = new Response();
         response.setErrorStatus(false);
         response.setResultMessage("File recorded");
         return response;
     }
+    
+    
 }
