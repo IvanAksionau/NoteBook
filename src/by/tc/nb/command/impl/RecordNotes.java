@@ -35,7 +35,7 @@ public class RecordNotes implements Command {
             for (Note someNote : list) {
                 String note = someNote.getSomeNote();
                 String date = someNote.getNoteDate().toString();
-                fw.write("[ " + date + " ]" + note + "\r\n");
+                fw.write("[" + date + "] " + note + "\r\n"); //[ 2016-10-01 } some note
             }
             fw.close();
         } catch (IOException e1) {

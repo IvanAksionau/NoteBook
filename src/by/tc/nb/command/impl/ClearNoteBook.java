@@ -10,25 +10,24 @@ import by.tc.nb.source.NoteBookProvider;
 
 public class ClearNoteBook implements Command {
 
-	@Override
-	public Response execute(Request request) throws CommandException {
-		ClearNoteBookRequest req = null;
+    @Override
+    public Response execute(Request request) throws CommandException {
+        ClearNoteBookRequest req = null;
 
-		if (request instanceof ClearNoteBookRequest) {
-			req = (ClearNoteBookRequest) request;
-		} else {
+        Response response = new Response();
+        if (request instanceof ClearNoteBookRequest) {
+            req = (ClearNoteBookRequest) request;
+        } else {
+            response.setErrorMessage("Notebook not cleared");
+            throw new CommandException("Wrong request");
+        }
 
-			throw new CommandException("Wrong request");
-		}
-
-		NoteBookProvider.getInstance().getNoteBook().clearNoteBook();
-
-		Response response = new Response();
-		response.setErrorStatus(false);
-		response.setResultMessage("Notebook cleared");
+        NoteBookProvider.getInstance().getNoteBook().clearNoteBook();
+        response.setErrorStatus(false);
+        response.setResultMessage("Notebook cleared");
 
 
-		return response;
-	}
+        return response;
+    }
 
 }
