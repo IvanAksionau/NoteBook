@@ -5,7 +5,9 @@ import by.tc.nb.bean.Request;
 import by.tc.nb.bean.Response;
 import by.tc.nb.command.Command;
 import by.tc.nb.command.exception.CommandException;
-import by.tc.nb.source.NoteBookProvider;
+import by.tc.nb.service.NoteBookService;
+import by.tc.nb.service.ServiceFactory;
+import by.tc.nb.service.exception.ServiceException;
 
 
 public class ClearNoteBook implements Command {
@@ -22,11 +24,17 @@ public class ClearNoteBook implements Command {
             throw new CommandException("Wrong request");
         }
 
-        NoteBookProvider.getInstance().getNoteBook().clearNoteBook();
+        ServiceFactory service = ServiceFactory.getInstance();
+        NoteBookService nbService = service.getNoteBookService();
+
+        try {
+            nbService.clearNote();
+        } catch (ServiceException e) {
+            throw new CommandException();
+        }
+
         response.setErrorStatus(false);
         response.setResultMessage("Notebook cleared");
-
-
         return response;
     }
 

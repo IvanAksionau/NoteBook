@@ -19,6 +19,6 @@ public class NoteBookProvider {
 	
 	public NoteBook getNoteBook(){
 		return noteBook;
-	}
+	} ///why not static
 
 }

@@ -3,11 +3,11 @@ package by.tc.nb.command.impl;
 import by.tc.nb.bean.AddNewNoteRequest;
 import by.tc.nb.bean.Request;
 import by.tc.nb.bean.Response;
-import by.tc.nb.bean.entity.Note;
-import by.tc.nb.bean.entity.NoteBook;
 import by.tc.nb.command.Command;
 import by.tc.nb.command.exception.CommandException;
-import by.tc.nb.source.NoteBookProvider;
+import by.tc.nb.service.NoteBookService;
+import by.tc.nb.service.ServiceFactory;
+import by.tc.nb.service.exception.ServiceException;
 
 public class AddNewNote implements Command {
 
@@ -24,16 +24,18 @@ public class AddNewNote implements Command {
 
         String note = req.getNote();
 
-        Note newNote = new Note(note);
+        ServiceFactory service = ServiceFactory.getInstance();
+        NoteBookService nbService = service.getNoteBookService();
 
-        NoteBook noteBook = NoteBookProvider.getInstance().getNoteBook();
-        noteBook.addNote(newNote);
+        try {
+            nbService.addNote(note);
+        } catch (ServiceException e) {
+            throw new CommandException();
+        }
 
         Response response = new Response();
         response.setErrorStatus(false);
         response.setResultMessage("All OK/запись добавлена в блокнот!");
-
-
         return response;
     }
 
