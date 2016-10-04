@@ -1,7 +1,7 @@
 package by.tc.nb.view;
 
 import by.tc.nb.bean.AddNewNoteRequest;
-import by.tc.nb.bean.Request;
+import by.tc.nb.bean.ClearNoteBookRequest;
 import by.tc.nb.bean.Response;
 import by.tc.nb.controller.Controller;
 
@@ -34,7 +34,7 @@ public class View {
                 }
                 break;
             case 2:
-                Request request2 = new Request();
+                ClearNoteBookRequest request2 = new ClearNoteBookRequest();
                 request2.setCommandName("CLEAR_NOTE_BOOK");
                 Response response2 = controller.doRequest(request2);
                 if(response2.isErrorStatus() ==  false){

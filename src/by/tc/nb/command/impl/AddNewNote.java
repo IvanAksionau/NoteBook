@@ -14,16 +14,13 @@ public class AddNewNote implements Command {
     @Override
     public Response execute(Request request) throws CommandException {
         AddNewNoteRequest req = null;
-
         if (request instanceof AddNewNoteRequest) {
             req = (AddNewNoteRequest) request;
         } else {
-            //response.setErrorMessage("New note can not be added");
             throw new CommandException("Wrong request");
         }
 
         String note = req.getNote();
-
         ServiceFactory service = ServiceFactory.getInstance();
         NoteBookService nbService = service.getNoteBookService();
 
@@ -35,7 +32,7 @@ public class AddNewNote implements Command {
 
         Response response = new Response();
         response.setErrorStatus(false);
-        response.setResultMessage("All OK/запись добавлена в блокнот!");
+        response.setResultMessage("Note added !");
         return response;
     }
 

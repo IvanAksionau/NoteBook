@@ -1,10 +1,10 @@
 package by.tc.nb.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import by.tc.nb.command.Command;
 import by.tc.nb.command.impl.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CommandHelper {
 
@@ -16,7 +16,7 @@ public class CommandHelper {
 		commands.put("DOWNLOAD_NOTE", new DownloadNoteBook());
 		commands.put("FIND_NOTES_BY_CONTENT", new FindNotesByContent());
 		commands.put("FIND_NOT_BY_DATE", new FindNotesByDate());
-		commands.put("RECORD_NOTES", new RecordNotes());
+		commands.put("RECORD_NOTES", new RecordNoteBook());
 		commands.put("SHOW_NOTES", new ShowNotes());
 	}
 

@@ -15,8 +15,11 @@ public class NoteBookProvider {
 	public static NoteBookProvider getInstance(){
 		return instance;
 	}
-	
-	
+
+	public void setNoteBook(NoteBook noteBook) {
+		this.noteBook = noteBook;
+	}
+
 	public NoteBook getNoteBook(){
 		return noteBook;
 	} ///why not static
