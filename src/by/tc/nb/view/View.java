@@ -38,7 +38,8 @@ public class View {
                     AddNewNoteRequest request1 = new AddNewNoteRequest();
                     request1.setCommandName("ADD_NEW_NOTE");
                     System.out.println("Enter new note :");
-                    request1.setNote(scanner.nextLine());
+                    String message = new Scanner(System.in).nextLine();
+                    request1.setNote(message);
                     Response response = controller.doRequest(request1);
                     if (response.isErrorStatus() == false) {
                         System.out.println(response.getResultMessage());

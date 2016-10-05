@@ -21,15 +21,14 @@ public class NoteBookServiceImpl implements NoteBookService {
         if (note == null || "".equals(note)) {
             throw new ServiceException("Wrong parameter!");
         }
-        Note newNote = new Note(note);
-        NoteBook noteBook = NoteBookProvider.getInstance().getNoteBook();
-        noteBook.addNote(newNote);
+        NoteBookProvider.getInstance().getNoteBook().addNote(new Note(note));
+
     }
 
     @Override
     public void clearAllNotes() throws ServiceException {
         // parameters validation
-        if (NoteBookProvider.getInstance().getNoteBook().getNotes().size() != 0) {
+        if (NoteBookProvider.getInstance().getNoteBook().getNotes().size() == 0) {
             throw new ServiceException("Notes were not founded!");
         }
         NoteBookProvider.getInstance().getNoteBook().clearNoteBook();
@@ -73,7 +72,7 @@ public class NoteBookServiceImpl implements NoteBookService {
     @Override
     public void ShowNotes() throws ServiceException {
 
-        if (NoteBookProvider.getInstance().getNoteBook().getNotes().size() != 0) {
+        if (NoteBookProvider.getInstance().getNoteBook().getNotes().size() == 0) {
             throw new ServiceException("Notes were not founded!");
         }
         else {

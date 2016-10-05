@@ -27,7 +27,7 @@ public class ClearNoteBook implements Command {
         try {
             nbService.clearAllNotes();
         } catch (ServiceException e) {
-            throw new CommandException();
+            throw new CommandException(e.getMessage());
         }
         Response response = new Response();
         response.setErrorStatus(false);
