@@ -23,7 +23,7 @@ public class Controller {
 			// logging
 			response = new Response();
 			response.setErrorStatus(true);
-			response.setErrorMessage("ERROR!");
+			response.setErrorMessage(e.getMessage());
 		}
 		return response;
 		
