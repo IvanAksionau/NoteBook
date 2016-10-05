@@ -31,12 +31,12 @@ public class DownloadNoteBook implements Command {
         try {
             nbService.downLoadNoteBook(path);
         } catch (ServiceException e) {
-            throw new CommandException();
+            throw new CommandException(e.getMessage());
         }
 
         Response response = new Response();
         response.setErrorStatus(false);
-        response.setResultMessage("File recorded");
+        response.setResultMessage("Notebook downloaded");
         return response;
     }
 }

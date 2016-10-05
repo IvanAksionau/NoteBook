@@ -32,7 +32,7 @@ public class FindNotesByContent implements Command {
         try {
             result = nbService.findNotesByContent(content);
         } catch (ServiceException e) {
-            throw new CommandException();
+            throw new CommandException(e.getMessage());
         }
 
         FindNotesByContentResponse response = new FindNotesByContentResponse();

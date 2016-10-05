@@ -13,9 +13,9 @@ public class CommandHelper {
 	public CommandHelper() {
 		commands.put("ADD_NEW_NOTE", new AddNewNote());
 		commands.put("CLEAR_NOTE_BOOK", new ClearNoteBook());
-		commands.put("DOWNLOAD_NOTE", new DownloadNoteBook());
+		commands.put("DOWNLOAD_NOTE_BOOK", new DownloadNoteBook());
 		commands.put("FIND_NOTES_BY_CONTENT", new FindNotesByContent());
-		commands.put("FIND_NOT_BY_DATE", new FindNotesByDate());
+		commands.put("FIND_NOTE_BY_DATE", new FindNotesByDate());
 		commands.put("RECORD_NOTES", new RecordNoteBook());
 		commands.put("SHOW_NOTES", new ShowNotes());
 	}

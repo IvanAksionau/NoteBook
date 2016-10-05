@@ -36,7 +36,7 @@ public class FindNotesByDate implements Command{
         try {
             result = nbService.findNotesByDate(year,month,dayOfMonth);
         } catch (ServiceException e) {
-            throw new CommandException("wrong data");
+            throw new CommandException(e.getMessage());
         }
 
         FindNotesByDateResponse response = new FindNotesByDateResponse();

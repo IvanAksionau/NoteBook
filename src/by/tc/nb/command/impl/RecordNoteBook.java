@@ -31,7 +31,7 @@ public class RecordNoteBook implements Command {
         try {
             nbService.recordNoteBook(path);
         } catch (ServiceException e) {
-            throw new CommandException();
+            throw new CommandException(e.getMessage());
         }
 
         Response response = new Response();

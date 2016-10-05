@@ -35,5 +35,4 @@ public class AddNewNote implements Command {
         response.setResultMessage("Note added !");
         return response;
     }
-
 }

@@ -76,11 +76,13 @@ public class NoteBookServiceImpl implements NoteBookService {
         if (NoteBookProvider.getInstance().getNoteBook().getNotes().size() != 0) {
             throw new ServiceException("Notes were not founded!");
         }
-        List<Note> list = NoteBookProvider.getInstance().getNoteBook().getNotes();
-        for (Note someNote : list) {
-            String note = someNote.getSomeNote();
-            String date = someNote.getNoteDate().toString();
-            System.out.println("[" + date + "]" + note + "\r\n");
+        else {
+            List<Note> list = NoteBookProvider.getInstance().getNoteBook().getNotes();
+            for (Note someNote : list) {
+                String note = someNote.getSomeNote();
+                String date = someNote.getNoteDate().toString();
+                System.out.println("[" + date + "]" + note + "\r\n");
+            }
         }
     }
 
@@ -103,7 +105,7 @@ public class NoteBookServiceImpl implements NoteBookService {
     @Override
     public List<Note> findNotesByDate(String year, String month, String dayOfMonth) throws ServiceException {
         if (year == null || month == null || dayOfMonth == null) {
-            throw new ServiceException("Wrong parameter!");
+            throw new ServiceException("Wrong date parameter!");
         }
         try {
             int dateYear = parseInt(year);
@@ -122,10 +124,8 @@ public class NoteBookServiceImpl implements NoteBookService {
             return result;
         }
         catch (NumberFormatException ex){
-            throw new ServiceException("Wrong parameter!");
+            throw new ServiceException("Wrong date parameter!");
         }
-
     }
-
 
 }

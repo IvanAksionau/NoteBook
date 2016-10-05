@@ -28,7 +28,7 @@ public class ShowNotes implements Command {
         try {
             nbService.ShowNotes();
         } catch (ServiceException e) {
-            throw new CommandException();
+            throw new CommandException(e.getMessage());
         }
 
         Response response = new Response();
