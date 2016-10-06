@@ -81,7 +81,8 @@ public class View {
                         System.out.println(response4.getResultMessage());
                         List<Note> result = response4.getFoundedNotes();
                         for (Note note : result) {
-                            System.out.println(note.getSomeNote());
+                            String noteForList = note.getNote().trim();//fix
+                            System.out.println("[" + note.getNoteDate() + "]" +  noteForList);
                         }
                     } else {
                         System.out.println(response4.getErrorMessage());
@@ -103,7 +104,7 @@ public class View {
 
                         List<Note> result = response5.getFoundedNotes();
                         for (Note note : result) {
-                            System.out.println(note.getSomeNote());
+                            System.out.println(note.getNote());
                         }
                     } else {
                         System.out.println(response5.getErrorMessage());

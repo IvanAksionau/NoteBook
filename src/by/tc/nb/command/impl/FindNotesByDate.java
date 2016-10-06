@@ -42,7 +42,7 @@ public class FindNotesByDate implements Command{
         FindNotesByDateResponse response = new FindNotesByDateResponse();
         response.setFoundedNotes(result);
         response.setErrorStatus(false);
-        response.setResultMessage("Count of founded notes is" + result.size());
+        response.setResultMessage("Count of founded notes is " + result.size());
         return response;
     }
 }

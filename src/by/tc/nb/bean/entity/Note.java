@@ -5,11 +5,11 @@ import java.time.LocalDate;
 
 public class Note implements Serializable {
 
-    private String someNote;
+    private String note;
     private LocalDate noteDate;
 
-    public Note(String someNote) {
-        this.someNote = someNote;
+    public Note(String note) {
+        this.note = note;
         noteDate = LocalDate.now();
     }
 
@@ -21,7 +21,15 @@ public class Note implements Serializable {
         return noteDate;
     }
 
-    public String getSomeNote() {
-        return someNote;
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public void setNoteDate(LocalDate noteDate) {
+        this.noteDate = noteDate;
+    }
+
+    public String getNote() {
+        return note;
     }
 }

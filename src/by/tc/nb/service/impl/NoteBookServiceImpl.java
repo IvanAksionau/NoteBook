@@ -78,7 +78,7 @@ public class NoteBookServiceImpl implements NoteBookService {
         else {
             List<Note> list = NoteBookProvider.getInstance().getNoteBook().getNotes();
             for (Note someNote : list) {
-                String note = someNote.getSomeNote();
+                String note = someNote.getNote();
                 String date = someNote.getNoteDate().toString();
                 System.out.println("[" + date + "]" + note + "\r\n");
             }
@@ -92,10 +92,12 @@ public class NoteBookServiceImpl implements NoteBookService {
         }
         List<Note> result = new ArrayList<>();
         List<Note> list = NoteBookProvider.getInstance().getNoteBook().getNotes();
-        for (Note someNote : list) {
-            String note = someNote.getSomeNote();
-            if (note.contains(content)){
-                result.add(someNote);
+        for (Note noteList : list) {
+            String noteString = noteList.getNote(); ///Fix
+            if (noteString.contains(content)){
+                //заменяем значение в Note/присваиваем текст без пробелов
+                noteList.setNote(noteList.getNote().trim());
+                result.add(noteList);
             }
         }
         return result;
@@ -114,10 +116,11 @@ public class NoteBookServiceImpl implements NoteBookService {
             String requestDate = LocalDate.of(dateYear, dateMonth, dateDayOfMonth).toString();
             List<Note> result = new ArrayList<>();
             List<Note> list = NoteBookProvider.getInstance().getNoteBook().getNotes();
-            for (Note someNote : list) {
-                String noteDate = someNote.getNoteDate().toString();
+            for (Note noteList : list) {
+                String noteDate = noteList.getNoteDate().toString();
                 if (requestDate.equals(noteDate)) {
-                    result.add(someNote);
+                    noteList.setNote(noteList.getNote().trim());
+                    result.add(noteList);
                 }
             }
             return result;
