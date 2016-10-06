@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="hamcrest-core-1.3">
+    <CLASSES>
+      <root url="jar://D:/автоматизация/тренинг/libraries/hamcrest-core-1.3.jar!/" />
+      <root url="jar://D:/автоматизация/тренинг/libraries/junit-4.12.jar!/" />
+      <root url="jar://D:/автоматизация/тренинг/libraries/jsoup-1.9.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
